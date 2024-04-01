@@ -13,6 +13,10 @@
 		EA4FED6C2BA8899600A09929 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA4FED6A2BA8899600A09929 /* Main.storyboard */; };
 		EA4FED6E2BA8899700A09929 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA4FED6D2BA8899700A09929 /* Assets.xcassets */; };
 		EA4FED712BA8899700A09929 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA4FED6F2BA8899700A09929 /* LaunchScreen.storyboard */; };
+		EAAA322D2BBAF2D7000AA774 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAA322C2BBAF2D7000AA774 /* PlayerViewController.swift */; };
+		EAD0745C2BAB2B510059091E /* Song3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EAD0745B2BAB2B510059091E /* Song3.mp3 */; };
+		EAD0745E2BAB2B570059091E /* Boys Don't Cry.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EAD0745D2BAB2B570059091E /* Boys Don't Cry.mp3 */; };
+		EAD074602BAB2B5C0059091E /* Song1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EAD0745F2BAB2B5C0059091E /* Song1.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		EA4FED6D2BA8899700A09929 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EA4FED702BA8899700A09929 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EA4FED722BA8899700A09929 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EAAA322C2BBAF2D7000AA774 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		EAD0745B2BAB2B510059091E /* Song3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Song3.mp3; path = ../../../../Downloads/Song3.mp3; sourceTree = "<group>"; };
+		EAD0745D2BAB2B570059091E /* Boys Don't Cry.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Boys Don't Cry.mp3"; path = "../../../../Downloads/Boys Don't Cry.mp3"; sourceTree = "<group>"; };
+		EAD0745F2BAB2B5C0059091E /* Song1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Song1.mp3; path = ../../../../Downloads/Song1.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,7 @@
 		EA4FED632BA8899600A09929 /* Mymusic */ = {
 			isa = PBXGroup;
 			children = (
+				EAD0745A2BAB28230059091E /* Audio */,
 				EA4FED642BA8899600A09929 /* AppDelegate.swift */,
 				EA4FED662BA8899600A09929 /* SceneDelegate.swift */,
 				EA4FED682BA8899600A09929 /* ViewController.swift */,
@@ -63,8 +72,19 @@
 				EA4FED6D2BA8899700A09929 /* Assets.xcassets */,
 				EA4FED6F2BA8899700A09929 /* LaunchScreen.storyboard */,
 				EA4FED722BA8899700A09929 /* Info.plist */,
+				EAAA322C2BBAF2D7000AA774 /* PlayerViewController.swift */,
 			);
 			path = Mymusic;
+			sourceTree = "<group>";
+		};
+		EAD0745A2BAB28230059091E /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				EAD0745F2BAB2B5C0059091E /* Song1.mp3 */,
+				EAD0745D2BAB2B570059091E /* Boys Don't Cry.mp3 */,
+				EAD0745B2BAB2B510059091E /* Song3.mp3 */,
+			);
+			path = Audio;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +145,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAD0745C2BAB2B510059091E /* Song3.mp3 in Resources */,
+				EAD074602BAB2B5C0059091E /* Song1.mp3 in Resources */,
+				EAD0745E2BAB2B570059091E /* Boys Don't Cry.mp3 in Resources */,
 				EA4FED712BA8899700A09929 /* LaunchScreen.storyboard in Resources */,
 				EA4FED6E2BA8899700A09929 /* Assets.xcassets in Resources */,
 				EA4FED6C2BA8899600A09929 /* Main.storyboard in Resources */,
@@ -139,6 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA4FED692BA8899600A09929 /* ViewController.swift in Sources */,
+				EAAA322D2BBAF2D7000AA774 /* PlayerViewController.swift in Sources */,
 				EA4FED652BA8899600A09929 /* AppDelegate.swift in Sources */,
 				EA4FED672BA8899600A09929 /* SceneDelegate.swift in Sources */,
 			);
