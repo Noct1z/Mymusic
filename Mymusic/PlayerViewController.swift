@@ -44,6 +44,8 @@ class PlayerViewController: UIViewController {
         label.numberOfLines = 0
         return label
     }()
+    
+    let playPauseButton = UIButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,7 +115,7 @@ class PlayerViewController: UIViewController {
         
         songNameLabel.text = song.name
         albumNameLabel.text = song.albumName
-        artistNameLabel.text = song.albumName
+        artistNameLabel.text = song.artistName
     
         holder.addSubview(songNameLabel)
         holder.addSubview(albumNameLabel)
@@ -122,6 +124,46 @@ class PlayerViewController: UIViewController {
         
         
         // Player controls
+        
+        let nextButton = UIButton()
+        let backButton = UIButton()
+        
+        //Frame
+        let yPosition = artistNameLabel.frame.origin.y + 70 + 20
+        let size: CGFloat = 70
+        
+        playPauseButton.frame = CGRect(x: (holder.frame.size.width - size) / 2.0,
+                                       y: yPosition,
+                                       width: size,
+                                       height: size)
+        
+        nextButton.frame = CGRect(x: holder.frame.size.width - size - 20,
+                                       y: yPosition,
+                                       width: size,
+                                       height: size)
+        
+        backButton.frame = CGRect(x: 20,
+                                  y: yPosition,
+                                  width: size,
+                                  height: size)
+        
+        // Add actions
+        playPauseButton.addTarget(self, action: #selector(didTapPlayPauseButton), for: .touchUpInside)
+        nextButton.addTarget(self, action: #selector(didTapNextButton), for: .touchUpInside)
+        backButton.addTarget(self, action: #selector(didTapBackButton), for: .touchUpInside)
+        
+        // Styling
+        playPauseButton.setBackgroundImage(UIImage(systemName: "pause.fill"), for: .normal)
+        backButton.setBackgroundImage(UIImage(systemName: "backward.fill"), for: .normal)
+        nextButton.setBackgroundImage(UIImage(systemName: "forward.fill"), for: .normal)
+        
+        playPauseButton.tintColor = .black
+        backButton.tintColor = .black
+        nextButton.tintColor = .black
+        
+        holder.addSubview(playPauseButton)
+        holder.addSubview(nextButton)
+        holder.addSubview(backButton)
         
         //Slider
         
@@ -133,6 +175,61 @@ class PlayerViewController: UIViewController {
         slider.addTarget(self, action: #selector(didSlideSlider(_:)), for: .valueChanged)
         holder.addSubview(slider)
         
+        
+    }
+    
+    @objc func didTapBackButton(){
+        
+        if position > 0 {
+            position = position - 1
+            player?.stop()
+            for subview in holder.subviews {
+                subview.removeFromSuperview()
+            }
+            configure()
+        }
+        
+        
+    }
+    @objc func didTapNextButton(){
+        
+        if position < (songs.count - 1) {
+            position = position + 1
+            player?.stop()
+            for subview in holder.subviews {
+                subview.removeFromSuperview()
+            }
+            configure()
+        }
+        
+    }
+    @objc func didTapPlayPauseButton(){
+        if player?.isPlaying == true{
+            
+            //pause
+            player?.pause()
+            // show play button
+            playPauseButton.setBackgroundImage(UIImage(systemName: "play.fill"), for: .normal)
+            
+            // Shrink image
+            
+            UIView.animate(withDuration: 0.2, animations: {
+                self.albumImageView.frame = CGRect(x: 30,
+                                                   y: 30,
+                                                   width: self.holder.frame.size.width-60,
+                                                   height: self.holder.frame.size.width-60)})
+        }
+        else{
+            player?.play()
+            playPauseButton.setBackgroundImage(UIImage(systemName: "pause.fill"), for: .normal)
+            
+            // Increase image size
+            UIView.animate(withDuration: 0.2, animations: {
+                self.albumImageView.frame = CGRect(x: 10,
+                                                   y: 10,
+                                                   width: self.holder.frame.size.width-20,
+                                                   height: self.holder.frame.size.width-20)})
+        }
         
     }
     @objc func didSlideSlider(_ slider: UISlider){
